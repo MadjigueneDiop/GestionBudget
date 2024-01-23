@@ -1,35 +1,38 @@
-body{
+body {
     background-color: #f3eded;
 }
 
-.needs-validation{
-    width:610px;
+.needs-validation {
+    width: 610px;
     margin: 0;
     display: flex;
     min-height: 50vh;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 6px 6px;
-    background-color:#f3eded ;
+    background-color: #f3eded;
 
 }
-.solde{
-    width:610px;
+
+.solde {
+    width: 610px;
     margin: 0;
     display: flex;
     min-height: 50vh;
     justify-content: center;
     align-items: center;
-    background-color:#f3eded ;
+    background-color: #f3eded;
     box-shadow: 0px 0px 6px 6px;
 
 }
-span{
+
+span {
     display: flex;
     justify-content: space-around;
 
 }
-input{
+
+input {
     height: 40px;
     width: 350px;
     font-size: 16px;
@@ -37,37 +40,42 @@ input{
     border-radius: 5px;
     background-color: rgb(246, 246, 249);
 }
-.lol{
+
+.lol {
     display: flex;
     justify-content: end;
 }
-.fa-solid{
+
+.fa-solid {
     position: relative;
-    right:50px;
+    right: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
-.div{
+
+.div {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:10px;
+    gap: 10px;
 }
+
 .fa-solid {
     color: black;
 }
-.p{
+
+.p {
     display: flex;
     justify-content: space-between;
 }
-@media screen and (max-width: 758px) {
+@media only screen and (max-width: 600px) {
     .col{
-        display: flex;
+        display:flex;
         flex-direction: column;
         gap:30px;
-
-    }
-
+        justify-content: center;
+        align-items: center;
+	}
 }

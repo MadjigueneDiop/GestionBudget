@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de Budget</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Budget</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="p-5 d-flex justify-content-around col">
+  <!-- <div class="col"> -->
+
+  <div class="p-5 d-flex justify-content-around col">
     <form class="row g-3 needs-validation  rounded " novalidate>
-        <div class="d-flex justify-content-center align-items-center">
+      <div class="d-flex justify-content-center align-items-center">
         <div class="col-md-4 p-4">
           <label for="" class="form-label text-primary fs-5 ">Prenom</label>
           <input type="text" class="form-control w-100 " id="prénom" value="" required>
@@ -22,73 +26,64 @@
           <label for="" class="form-label text-primary fs-5">Nom</label>
           <input type="text" class="form-control w-100" id="nom" value="" required>
         </div>
-    </div>
-    <div class="d-flex justify-content-center align-items-center">
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
         <div class="col-md-4 p-4">
-            <label for="" class="form-label text-primary fs-5">Somme</label>
-            <input type="number" class="form-control w-100" id="somme" value="" required>
-          </div>
-
-          <div class="col-md-4 p-4">
-            <label for="" class="form-label text-primary fs-5">Date/Heure</label>
-            <input type="date" class="form-control w-100" id="date" value="" >
-          </div>
+          <label for="" class="form-label text-primary fs-5">Somme</label>
+          <input type="number" class="form-control w-100" id="somme" value="" required>
         </div>
-          <div class="col-md-8 p-4">
-            <label for="" class="form-label text-primary fs-5" >TypeTransaction</label>
-            <select class="form-select" id="Transaction" >
-              <option id="Dépôt">Dépôt</option>
-              <option id="Retrait">Retrait</option>
-            </select>
-            <div class="col-12 mt-4">
-                <button class="btn btn-primary w-100 text-white" type="button" id="btn">Exécuter</button>
-              </div>
-        </form>
+
+        <div class="col-md-4 p-4">
+          <label for="" class="form-label text-primary fs-5">Date/Heure</label>
+          <input type="date" class="form-control w-100" id="date" value="">
+        </div>
+      </div>
+      <div class="col-md-8 p-4">
+        <label for="" class="form-label text-primary fs-5">TypeTransaction</label>
+        <select class="form-select" id="Transaction">
+          <option id="Dépôt">Dépôt</option>
+          <option id="Retrait">Retrait</option>
+        </select>
+        <div class="col-12 mt-4">
+          <button class="btn btn-primary w-100 text-white" type="button" id="btn">Exécuter</button>
+        </div>
+    </form>
+  </div>
+  <div class="solde  rounded">
+    <p class="text-success fs-2">Votre solde est de : <br>
+      <span class="text-primary " id="Totale"></span><span class="text-danger"></span>
+
+    </p>
+  </div>
+  </div>
+<!-- </div> -->
+
+  <div class="container mt-5">
+    <div class="mb-3 lol">
+      <input type="text" id="filterInput" onclick="filterTableau()" class="filterInput  p-4 rounded"
+        placeholder="Rechercher">
+      <i class="fa-solid fa-magnifying-glass text-success fs-4"></i>
     </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Somme</th>
+          <th>Date/Heure</th>
+          <th>TypeTransaction</th>
+          <th id="action" >Action</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
 
-        <div class="solde  rounded">
-            <p class="text-success fs-2">Votre solde est de : <br> 
-                <span class="text-primary " id="Total"></span><span class="text-danger">FCFA</span>
-
-            </p>
-        </div>
- </div>
-    <div class="container mt-5">
-            <div class="mb-3 lol">
-              <input type="text" id="filterInput" onclick="filterTableau()" class="filterInput  p-4 rounded" placeholder="Rechercher">
-              <i class="fa-solid fa-magnifying-glass text-success fs-4"></i>
-            </div>
-           <table class="table table-striped">
-              <thead>
-                  <tr>
-                      <th >Prénom</th>
-                      <th>Nom</th>
-                      <th>Somme</th>
-                      <th>Date/Heure</th>
-                      <th>TypeTransaction</th>
-                      <th>Action
-           
-                      </th>
-                  </tr>
-              </thead>
-              <tbody id="table-body">
-          
-              </tbody>
-          </table>
-          <div class="div" id="modal"></div>
-          <nav aria-label="Page navigation">
-            <ul class="pagination" id="pagination"></ul>
-          </nav>
-        <!-- <p>il faut mettre les trois champs prenom nom somme  en required=obligatoire câd quand on ne met pas les données ça fait erreur</p>
-        <p>Faite des Recherche sur comment modifier des données statisques à partir d'un tableau</p>
-        <p>sur l'îcone voir doit avoir un modal et avoir des données par défaut</p>
-        <p>sur les options quand on selectionne Retrait les champs ne doivent plus etre en required</p>
-        <p>On doit modifier la somme câd quand on fait retrait ça doit dimunier </p> -->
-        <!-- <p>faire un resumé sur localStorage</p> -->
-          
-
-
-<script src="style.js"></script>
-
+      </tbody>
+    </table>
+    <div class="div" id="modal"></div>
+    <nav aria-label="Page navigation">
+      <ul class="pagination" id="pagination"></ul>
+    </nav>
+    <script src="style.js"></script>
 </body>
+
 </html>
